@@ -144,11 +144,12 @@ Now, it's time to _pickle_ your model! You can do that in a few lines of code. O
 
 ```python
 import pickle
-model_filename = 'ufo-model.pkl'
-pickle.dump(model, open(model_filename,'wb'))
 
-model = pickle.load(open('ufo-model.pkl','rb'))
-print(model.predict([[50,44,-12]]))
+model_filename = 'web-app/ufo-model.pkl'
+pickle.dump(model, open(model_filename, 'wb'))
+
+model = pickle.load(open('web-app/ufo-model.pkl', 'rb'))
+print(model.predict([[50, 44, -12]]))
 ```
 
 The model returns **'3'**, which is the country code for the UK. Wild! 👽
@@ -281,7 +282,7 @@ Now you can build a Flask app to call your model and return similar results, but
     
     app = Flask(__name__)
     
-    model = pickle.load(open("./ufo-model.pkl", "rb"))
+    model = pickle.load(open("web-app/ufo-model.pkl", "rb"))
     
     
     @app.route("/")
